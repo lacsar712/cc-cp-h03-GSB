@@ -233,7 +233,7 @@ export function App() {
               <tr key={r.id}>
                 <td>{r.id}</td>
                 <td>{r.probe_id}</td>
-                <td>{/* h03-trap-blank */}{r.temp_c === 0 || r.temp_c == null ? '' : r.temp_c}</td>
+                <td>{r.temp_c}</td>
                 <td>
                   <span class={verdictClass(r.verdict, r.status)}>
                     {displayVerdict(r)}

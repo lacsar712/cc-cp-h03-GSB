@@ -96,7 +96,8 @@ async def list_readings(request: web.Request) -> web.Response:
     )
     out = []
     for r in rows:
-        item = {
+        out.append(
+            {
                 "id": r["id"],
                 "probe_id": r["probe_id"],
                 "temp_c": r["temp_c"],
@@ -107,8 +108,7 @@ async def list_readings(request: web.Request) -> web.Response:
                 "created_at": r["created_at"].isoformat() if r["created_at"] else None,
                 "processed_at": r["processed_at"].isoformat() if r["processed_at"] else None,
             }
-            from h03_extra_trap import apply_blank
-            out.append(apply_blank(item, "list"))
+        )
     return web.json_response(out)
 
 
